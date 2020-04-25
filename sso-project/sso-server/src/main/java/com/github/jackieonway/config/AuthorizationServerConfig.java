@@ -62,10 +62,13 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         return tokenServices;
     }
 
-
+    //令牌访问端点安全策略
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        super.configure(security);
+//        super.configure(security);
+    security.tokenKeyAccess("permitAll()") // /oauth/token_key 资源公开
+            .checkTokenAccess("permitAll()") // /oauth/check_token 检查令牌公开
+            .allowFormAuthenticationForClients(); //表单认证
     }
 
     // 客户端配置
