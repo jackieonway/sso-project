@@ -72,7 +72,7 @@ public class AuthrizationServerConfig extends AuthorizationServerConfigurerAdapt
         //允许表单认证
         security.allowFormAuthenticationForClients();
         //允许check_ token访问
-        security.checkTokenAccess("permitAll()").checkTokenAccess("isAuthenticated()");
+        security.checkTokenAccess("permitAll()").tokenKeyAccess("isAuthenticated()");
     }
 
     //配置appId、appKey、回调地址、token有效期的

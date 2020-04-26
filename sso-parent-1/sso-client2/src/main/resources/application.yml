@@ -1,0 +1,38 @@
+auth-server: http://192.168.110.117:8081/auth
+security:
+  oauth2:
+    client:
+      client-id: test1
+      client-secret: 123456
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      access-token-uri: ${auth-server}/oauth/token
+    resource:
+      token-info-uri: ${auth-server}/oauth/check_token
+      prefer-token-info: true
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ump_sso?serverTimezone=Asia/Shanghai
+    username: root
+    password: 1234abcd
+    initialization-mode: always
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+logging:
+  level:
+    com: debug
+    org: debug
+server:
+  port: 8082
