@@ -2,7 +2,7 @@ auth-server: http://192.168.110.117:8081/auth
 security:
   oauth2:
     client:
-      client-id: curl_client
+      client-id: test2
       client-secret: 123456
       user-authorization-uri: ${auth-server}/oauth/authorize
       access-token-uri: ${auth-server}/oauth/token
@@ -34,3 +34,5 @@ logging:
   level:
     com: debug
     org: debug
+server:
+  port: 8080

@@ -1,16 +1,11 @@
 package com.github.jackieonway.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
@@ -41,7 +36,7 @@ public class ClientWebsecurityConfigurer extends ResourceServerConfigurerAdapter
     public void configure(ResourceServerSecurityConfigurer resources)throws Exception{
 
         TokenStore tokenStore=new JdbcTokenStore(dataSource());
-        resources.resourceId("product_api").tokenStore(tokenStore);
+        resources.resourceId("test2").tokenStore(tokenStore);
 
     }
 }

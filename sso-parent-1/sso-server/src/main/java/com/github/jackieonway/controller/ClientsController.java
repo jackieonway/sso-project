@@ -66,14 +66,14 @@ public class ClientsController {
         }
 
         if (!clientDetails.getClientSecret().isEmpty()) {
-            jdbcClientDetailsService.updateClientSecret(clientDetails.getClientId(), clientDetails.getClientSecret());
+            jdbcClientDetailsService.updateClientDetails(clientDetails);
         }
         return "redirect:/";
     }
 
-    @RequestMapping(value="{client.clientId}/delete",method = RequestMethod.POST)
+    @RequestMapping(value="{client.clientId}/delete",method = RequestMethod.GET)
     public String deleteClient(@ModelAttribute BaseClientDetails clientDetails,@PathVariable("client.clientId") String id){
-        jdbcClientDetailsService.removeClientDetails(jdbcClientDetailsService.loadClientByClientId(id).toString());
+        jdbcClientDetailsService.removeClientDetails(jdbcClientDetailsService.loadClientByClientId(id).getClientId());
         return "redirect:/";
     }
 }

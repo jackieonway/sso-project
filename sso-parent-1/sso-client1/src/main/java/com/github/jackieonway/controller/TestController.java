@@ -41,6 +41,6 @@ public class TestController {
 
     @GetMapping("/connect")
     public void connect(HttpServletResponse response, HttpServletRequest request) throws IOException {
-        response.sendRedirect("http://192.168.110.117:8081/auth/oauth/authorize?response_type=code&client_id=curl_client");
+        response.sendRedirect("http://192.168.110.117:8081/auth/oauth/authorize?response_type=code&client_id=test2");
     }
 }
